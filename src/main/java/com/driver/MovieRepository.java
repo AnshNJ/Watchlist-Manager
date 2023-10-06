@@ -8,10 +8,16 @@ import java.util.*;
 public class MovieRepository {
 
     //Store data using HashMap
-    HashMap<String , Movie> movieMap = new HashMap<>();
-    HashMap<String , Director> directorMap = new HashMap<>();
+    private HashMap<String , Movie> movieMap;
+    private HashMap<String , Director> directorMap;
 
-    HashMap<String , List<Movie>> directorMovieMap = new HashMap<>();
+    private HashMap<String , List<Movie>> directorMovieMap;
+
+    public MovieRepository() {
+        this.movieMap = new HashMap<>();
+        this.directorMap = new HashMap<>();
+        this.directorMovieMap = new HashMap<>();
+    }
 
     public void addMovie(Movie movie) {
         movieMap.put(movie.getName() , movie);

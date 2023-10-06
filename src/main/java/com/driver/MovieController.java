@@ -38,23 +38,23 @@ public class MovieController {
 
     //GET MOVIE
     @GetMapping("/get-movie-by-name/{name}")
-    public ResponseEntity<Movie> getMovieByName(@PathVariable("name") String name){
+    public ResponseEntity<Movie> getMovieByName(@PathVariable String name){
         Movie m = movieService.getMovieByName(name);
-        return new ResponseEntity<>(m , HttpStatus.FOUND);
+        return new ResponseEntity<>(m , HttpStatus.CREATED);
     }
 
     //GET DIRECTOR
     @GetMapping("/get-director-by-name/{name}")
-    public ResponseEntity<Director> getDirectorByName(@PathVariable("name") String name){
+    public ResponseEntity<Director> getDirectorByName(@PathVariable String name){
         Director d = movieService.getDirectorByName(name);
-        return new ResponseEntity<>(d , HttpStatus.FOUND);
+        return new ResponseEntity<>(d , HttpStatus.CREATED);
     }
 
     //GET LIST OF MOVIES UNDER GIVEN DIRECTOR
     @GetMapping("/get-movies-by-director-name/{director}")
-    public ResponseEntity<List<Movie>> getMoviesByDirectorName(@PathVariable("director") String name){
-        List<Movie> moviesUnderDirector = movieService.getMoviesByDirectorName(name);
-        return new ResponseEntity<>( moviesUnderDirector , HttpStatus.FOUND);
+    public ResponseEntity<List<Movie>> getMoviesByDirectorName(@PathVariable String director){
+        List<Movie> moviesUnderDirector = movieService.getMoviesByDirectorName(director);
+        return new ResponseEntity<>( moviesUnderDirector , HttpStatus.CREATED);
     }
 
     //GET ALL MOVIES
@@ -67,9 +67,9 @@ public class MovieController {
 
     //DELETE DIRECTOR BY NAME
     @DeleteMapping("/delete-director-by-name")
-    public ResponseEntity<String> deleteDirectorByName(@RequestParam("director") String name){
-        movieService.deleteDirectorByName(name);
-        return new ResponseEntity<>("Director deleted" , HttpStatus.ACCEPTED);
+    public ResponseEntity<String> deleteDirectorByName(@RequestParam String director){
+        movieService.deleteDirectorByName(director);
+        return new ResponseEntity<>(director+ " deleted successfully" , HttpStatus.ACCEPTED);
     }
 
     //DELETE ALL DIRECTORS ALONG WITH THEIR RECORDS
