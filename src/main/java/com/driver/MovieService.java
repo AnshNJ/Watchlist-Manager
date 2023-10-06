@@ -33,13 +33,13 @@ public class MovieService {
         return d;
     }
 
-    public List<Movie> getMoviesByDirectorName(String directorName){
-        List<Movie> movieUnderDirector = movieRepo.getMoviesByDirectorName(directorName);
+    public List<String> getMoviesByDirectorName(String directorName){
+        List<String> movieUnderDirector = movieRepo.getMoviesByDirectorName(directorName);
         return movieUnderDirector;
     }
 
-    public List<Movie> findAllMovies(){
-        List<Movie> allMovies = movieRepo.findAllMovies();
+    public List<String> findAllMovies(){
+        List<String> allMovies = movieRepo.findAllMovies();
         return allMovies;
     }
 
